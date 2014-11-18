@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+</head>
+<body>
+  <script type='text/x-handlebars' data-template-name='application'>
+    <div class='navbar navbar-default'>
+        <div class="container">
+          <ul class='nav navbar-right'>
+            {{#link-to 'index' tagName='button'}}Home{{/link-to}}
+            {{#link-to 'things' tagName='button'}}Things{{/link-to}}
+            {{#link-to 'others' tagName='button'}}Other Things{{/link-to}}
+            {{#link-to 'doodads' tagName='button'}}Using Data{{/link-to}}
+            {{#link-to 'about' tagName='button'}}About{{/link-to}}
+         </ul>
+    </div>
+ 
+    <div class='container'>
+      {{outlet}}
+    </div>
+    <footer class='container'>
+      <hr />
+      <p class='pull-left'>&copy; 2014 My App</p>
+      <p class='pull-right'>{{#link-to 'credits'}}Credits{{/link-to}}</p>
+   </footer>
+  </script>
+ 
+  <script type="text/x-handlebars" data-template-name='index'> 
+    <h1>{{header}}</h1>
+    <img {{bind-attr src='image'}} height=200 width=180 class='img-thumbnail img-rounded'/><p/>
+    <p class="lead">{{msg}}</p>
+    <p>
+      {{#link-to 'things' class='btn btn-primary btn-lg'}}
+        Browse All {{thingCount}} Items &raquo;
+      {{/link-to}}
+    </p>
+    <p>Time is: {{time}}</p>
+  </script>
+  
+  <script type="text/x-handlebars" data-template-name='about'> 
+    <h2>Some things that caught my interest during the Engineering Retreat</h2>
+    <p class=text-muted>Other than the participants...</p>
+  </script>
+  
+  <script type="text/x-handlebars" data-template-name='credits'> 
+    <h2>Thanks!  This site would not be possible without a weekend retreat.</h2>
+  </script>
+  
+  <script type='text/x-handlebars' data-template-name='things'>
+    <h1>Things of Interest</h1>
+    <ul class='list-unstyled'>
+    {{#each}}
+      <li class='row'>
+        <img {{bind-attr src='image'}} alt='Image' 
+             class='img-thumbnail' height=200 width=180 />
+        <div class='col-sm-7'>
+          <h2>{{title}}</h2>
+          <p class='product-description'>{{description}}</p>
+          <p><button class='btn btn-success'>Tell me more</button></p>
+        </div>
+      </li>
+    {{/each}}
+    </ul>
+  </script>
+
+  <script type='text/x-handlebars' data-template-name='others'>
+    <div class='row'>
+      <div class='col-sm-3'>
+        <div class='list-group'>
+          {{#each}}
+            {{#link-to 'other' this classNames='list-group-item'}}
+              {{title}}
+            {{/link-to}}
+          {{/each}}
+        </div>
+      </div>
+      <div class='col-sm-9'>
+        {{outlet}}
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='other'>
+    <div class='row'>
+      <div class='col-sm-7'>
+        <h2>{{title}}</h2>
+        <p class='text-muted'>{{description}}</p>
+      </div>
+      <div class='col-sm-5'>
+        <img {{bind-attr src='image'}} class='img-thumbnail img-rounded'/>
+      </div>
+    </div>
+  </script>
+  <script type="text/x-handlebars" data-template-name='others/index'> 
+    <h2>Select an item of interest</h2>
+  </script>
+  
+  <script type='text/x-handlebars' data-template-name='doodads'>
+    <div class='row'>
+      <div class='col-sm-3'>
+        <div class='list-group'>
+          {{#each}}
+            {{#link-to 'doodad' this classNames='list-group-item'}}
+              {{title}}
+            {{/link-to}}
+          {{/each}}
+        </div>
+      </div>
+      <div class='col-sm-9'>
+        {{outlet}}
+      </div>
+    </div>
+  </script>
+  <script type='text/x-handlebars' data-template-name='doodad'>
+    <div class='row'>
+      <div class='col-sm-7'>
+        <h2>{{title}}</h2>
+        <p class='text-muted'>{{description}}</p>
+      </div>
+      <div class='col-sm-5'>
+        <img {{bind-attr src='image'}} class='img-thumbnail img-rounded'/>
+      </div>
+    </div>
+  </script>
+  <script type="text/x-handlebars" data-template-name='doodads/index'> 
+    <h2>Select an item of interest</h2>
+  </script>
+  
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/bootstrap.js"></script> 
+  <script src="js/libs/bootstrap.min.js"></script> 
+  <script src="js/libs/ember-1.5.1.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

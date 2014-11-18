@@ -1,0 +1,15 @@
+{ "doodads": [
+	{
+		"id": 1,
+		"title": 'Piano',
+	 	"description": 'The old piano by the front door',
+	 	"image": 'images/piano.png'
+	},
+	{
+		"id": 2,
+		"title": 'Single Malt',
+	 	"description": 'Ardbeg single malt scotch whiskey',
+	 	"image": 'images/scotch.png'	
+	}
+	]
+}
